@@ -13,11 +13,19 @@ project(${APP_TARGET})
 
 add_subdirectory(${MBED_PATH})
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Ultrasonic_SR04)
+
 add_executable(${APP_TARGET}
+    Ultrasonic_SR04/Ultrasonic_SR04.cpp
     main.cpp
 )
 
-target_link_libraries(${APP_TARGET} mbed-os)
+list(APPEND EXTRA_LIBS Ultrasonic_SR04)
+list(APPEND EXTRA_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/Ultrasonic_SR04/")
+
+target_include_directories(${APP_TARGET} PUBLIC "{EXTRA_INCLUDES}")
+
+target_link_libraries(${APP_TARGET} mbed-os ${EXTRA_LIBS})
 
 mbed_set_post_build(${APP_TARGET})
 
