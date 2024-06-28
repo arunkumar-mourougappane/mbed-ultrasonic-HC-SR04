@@ -19,7 +19,5 @@ jobs:
       - name: compile
         run: |
           mbed-tools deploy
-          mbed-tools configure -m NUCLEO_F303RE
-          mbed-tools configure -t GCC_ARM
-          mbed-tools compile -m NUCLEO_F303RE -t GCC_ARM --clean
-          mbed-tools compile -m NUCLEO_F303RE -t GCC_ARM
+          mbed-tools compile -m NUCLEO_F446RE -t GCC_ARM --clean
+          mbed-tools compile -m NUCLEO_F446RE -t GCC_ARM
